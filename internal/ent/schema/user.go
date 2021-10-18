@@ -28,7 +28,7 @@ func (User) Fields() []ent.Field {
 	return []ent.Field{
 		field.Int64("id").Comment(`主键`),
 		field.String("identity").Optional().Comment(`标识`),
-		field.Int32("type").Default(0).Comment(`类型：XXX`),
+		field.Int32("user").Default(0).Comment(`类型：XXX`),
 		field.Int32("is_disable").Default(0).Comment(`是否禁用：1-禁用，0-正常，默认：0`),
 		field.Time("created_at").Optional().SchemaType(map[string]string{dialect.MySQL: "datetime"}).Comment(`创建时间`),
 		field.Time("updated_at").Optional().SchemaType(map[string]string{dialect.MySQL: "datetime"}).Comment(`更新时间`),

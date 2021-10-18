@@ -250,7 +250,7 @@ func (mpau *MiniProgramAccountUpdate) Save(ctx context.Context) (int, error) {
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*MiniProgramAccountMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			mpau.mutation = mutation
 			affected, err = mpau.sqlSave(ctx)
@@ -668,7 +668,7 @@ func (mpauo *MiniProgramAccountUpdateOne) Save(ctx context.Context) (*MiniProgra
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*MiniProgramAccountMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			mpauo.mutation = mutation
 			node, err = mpauo.sqlSave(ctx)

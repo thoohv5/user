@@ -101,7 +101,7 @@ func (uec *UserExtendCreate) Save(ctx context.Context) (*UserExtend, error) {
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*UserExtendMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			if err = uec.check(); err != nil {
 				return nil, err
@@ -217,7 +217,7 @@ func (uecb *UserExtendCreateBulk) Save(ctx context.Context) ([]*UserExtend, erro
 			var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 				mutation, ok := m.(*UserExtendMutation)
 				if !ok {
-					return nil, fmt.Errorf("unexpected mutation type %T", m)
+					return nil, fmt.Errorf("unexpected mutation user %T", m)
 				}
 				if err := builder.check(); err != nil {
 					return nil, err

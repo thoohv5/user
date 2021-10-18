@@ -12,8 +12,8 @@ import (
 	"github.com/thoohv5/template/internal/pkg/config"
 	"github.com/thoohv5/template/internal/pkg/log"
 	"github.com/thoohv5/template/internal/router"
-	"github.com/thoohv5/template/internal/server"
-	"github.com/thoohv5/template/internal/service"
+	user2 "github.com/thoohv5/template/internal/server/user"
+	"github.com/thoohv5/template/internal/service/user"
 	"github.com/thoohv5/template/pkg/app"
 )
 
@@ -27,8 +27,8 @@ func initApp() (app.IApp, func(), error) {
 	if err != nil {
 		return nil, nil, err
 	}
-	iService := service.New(iConfig, logger, iData)
-	iServer := server.New(iConfig, logger, iService)
+	iService := user.New(iConfig, logger, iData)
+	iServer := user2.New(iConfig, logger, iService)
 	registerRouter := router.New(iConfig, iServer)
 	iApp := app2.New(iConfig, registerRouter)
 	return iApp, func() {

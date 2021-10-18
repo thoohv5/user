@@ -48,14 +48,14 @@ func (uau *UserAccountUpdate) ClearUserIdentity() *UserAccountUpdate {
 	return uau
 }
 
-// SetAccount sets the account field.
+// SetAccount sets the user field.
 func (uau *UserAccountUpdate) SetAccount(i int64) *UserAccountUpdate {
 	uau.mutation.ResetAccount()
 	uau.mutation.SetAccount(i)
 	return uau
 }
 
-// SetNillableAccount sets the account field if the given value is not nil.
+// SetNillableAccount sets the user field if the given value is not nil.
 func (uau *UserAccountUpdate) SetNillableAccount(i *int64) *UserAccountUpdate {
 	if i != nil {
 		uau.SetAccount(*i)
@@ -63,13 +63,13 @@ func (uau *UserAccountUpdate) SetNillableAccount(i *int64) *UserAccountUpdate {
 	return uau
 }
 
-// AddAccount adds i to account.
+// AddAccount adds i to user.
 func (uau *UserAccountUpdate) AddAccount(i int64) *UserAccountUpdate {
 	uau.mutation.AddAccount(i)
 	return uau
 }
 
-// ClearAccount clears the value of account.
+// ClearAccount clears the value of user.
 func (uau *UserAccountUpdate) ClearAccount() *UserAccountUpdate {
 	uau.mutation.ClearAccount()
 	return uau
@@ -180,7 +180,7 @@ func (uau *UserAccountUpdate) Save(ctx context.Context) (int, error) {
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*UserAccountMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			uau.mutation = mutation
 			affected, err = uau.sqlSave(ctx)
@@ -361,14 +361,14 @@ func (uauo *UserAccountUpdateOne) ClearUserIdentity() *UserAccountUpdateOne {
 	return uauo
 }
 
-// SetAccount sets the account field.
+// SetAccount sets the user field.
 func (uauo *UserAccountUpdateOne) SetAccount(i int64) *UserAccountUpdateOne {
 	uauo.mutation.ResetAccount()
 	uauo.mutation.SetAccount(i)
 	return uauo
 }
 
-// SetNillableAccount sets the account field if the given value is not nil.
+// SetNillableAccount sets the user field if the given value is not nil.
 func (uauo *UserAccountUpdateOne) SetNillableAccount(i *int64) *UserAccountUpdateOne {
 	if i != nil {
 		uauo.SetAccount(*i)
@@ -376,13 +376,13 @@ func (uauo *UserAccountUpdateOne) SetNillableAccount(i *int64) *UserAccountUpdat
 	return uauo
 }
 
-// AddAccount adds i to account.
+// AddAccount adds i to user.
 func (uauo *UserAccountUpdateOne) AddAccount(i int64) *UserAccountUpdateOne {
 	uauo.mutation.AddAccount(i)
 	return uauo
 }
 
-// ClearAccount clears the value of account.
+// ClearAccount clears the value of user.
 func (uauo *UserAccountUpdateOne) ClearAccount() *UserAccountUpdateOne {
 	uauo.mutation.ClearAccount()
 	return uauo
@@ -493,7 +493,7 @@ func (uauo *UserAccountUpdateOne) Save(ctx context.Context) (*UserAccount, error
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*UserAccountMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			uauo.mutation = mutation
 			node, err = uauo.sqlSave(ctx)

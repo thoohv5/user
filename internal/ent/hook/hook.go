@@ -9,7 +9,7 @@ import (
 	"github.com/thoohv5/template/internal/ent"
 )
 
-// The MiniProgramAccountFunc type is an adapter to allow the use of ordinary
+// The MiniProgramAccountFunc user is an adapter to allow the use of ordinary
 // function as MiniProgramAccount mutator.
 type MiniProgramAccountFunc func(context.Context, *ent.MiniProgramAccountMutation) (ent.Value, error)
 
@@ -17,12 +17,12 @@ type MiniProgramAccountFunc func(context.Context, *ent.MiniProgramAccountMutatio
 func (f MiniProgramAccountFunc) Mutate(ctx context.Context, m ent.Mutation) (ent.Value, error) {
 	mv, ok := m.(*ent.MiniProgramAccountMutation)
 	if !ok {
-		return nil, fmt.Errorf("unexpected mutation type %T. expect *ent.MiniProgramAccountMutation", m)
+		return nil, fmt.Errorf("unexpected mutation user %T. expect *ent.MiniProgramAccountMutation", m)
 	}
 	return f(ctx, mv)
 }
 
-// The PhoneAccountFunc type is an adapter to allow the use of ordinary
+// The PhoneAccountFunc user is an adapter to allow the use of ordinary
 // function as PhoneAccount mutator.
 type PhoneAccountFunc func(context.Context, *ent.PhoneAccountMutation) (ent.Value, error)
 
@@ -30,12 +30,12 @@ type PhoneAccountFunc func(context.Context, *ent.PhoneAccountMutation) (ent.Valu
 func (f PhoneAccountFunc) Mutate(ctx context.Context, m ent.Mutation) (ent.Value, error) {
 	mv, ok := m.(*ent.PhoneAccountMutation)
 	if !ok {
-		return nil, fmt.Errorf("unexpected mutation type %T. expect *ent.PhoneAccountMutation", m)
+		return nil, fmt.Errorf("unexpected mutation user %T. expect *ent.PhoneAccountMutation", m)
 	}
 	return f(ctx, mv)
 }
 
-// The UserFunc type is an adapter to allow the use of ordinary
+// The UserFunc user is an adapter to allow the use of ordinary
 // function as User mutator.
 type UserFunc func(context.Context, *ent.UserMutation) (ent.Value, error)
 
@@ -43,12 +43,12 @@ type UserFunc func(context.Context, *ent.UserMutation) (ent.Value, error)
 func (f UserFunc) Mutate(ctx context.Context, m ent.Mutation) (ent.Value, error) {
 	mv, ok := m.(*ent.UserMutation)
 	if !ok {
-		return nil, fmt.Errorf("unexpected mutation type %T. expect *ent.UserMutation", m)
+		return nil, fmt.Errorf("unexpected mutation user %T. expect *ent.UserMutation", m)
 	}
 	return f(ctx, mv)
 }
 
-// The UserAccountFunc type is an adapter to allow the use of ordinary
+// The UserAccountFunc user is an adapter to allow the use of ordinary
 // function as UserAccount mutator.
 type UserAccountFunc func(context.Context, *ent.UserAccountMutation) (ent.Value, error)
 
@@ -56,12 +56,12 @@ type UserAccountFunc func(context.Context, *ent.UserAccountMutation) (ent.Value,
 func (f UserAccountFunc) Mutate(ctx context.Context, m ent.Mutation) (ent.Value, error) {
 	mv, ok := m.(*ent.UserAccountMutation)
 	if !ok {
-		return nil, fmt.Errorf("unexpected mutation type %T. expect *ent.UserAccountMutation", m)
+		return nil, fmt.Errorf("unexpected mutation user %T. expect *ent.UserAccountMutation", m)
 	}
 	return f(ctx, mv)
 }
 
-// The UserExtendFunc type is an adapter to allow the use of ordinary
+// The UserExtendFunc user is an adapter to allow the use of ordinary
 // function as UserExtend mutator.
 type UserExtendFunc func(context.Context, *ent.UserExtendMutation) (ent.Value, error)
 
@@ -69,12 +69,12 @@ type UserExtendFunc func(context.Context, *ent.UserExtendMutation) (ent.Value, e
 func (f UserExtendFunc) Mutate(ctx context.Context, m ent.Mutation) (ent.Value, error) {
 	mv, ok := m.(*ent.UserExtendMutation)
 	if !ok {
-		return nil, fmt.Errorf("unexpected mutation type %T. expect *ent.UserExtendMutation", m)
+		return nil, fmt.Errorf("unexpected mutation user %T. expect *ent.UserExtendMutation", m)
 	}
 	return f(ctx, mv)
 }
 
-// The UserInfoFunc type is an adapter to allow the use of ordinary
+// The UserInfoFunc user is an adapter to allow the use of ordinary
 // function as UserInfo mutator.
 type UserInfoFunc func(context.Context, *ent.UserInfoMutation) (ent.Value, error)
 
@@ -82,7 +82,7 @@ type UserInfoFunc func(context.Context, *ent.UserInfoMutation) (ent.Value, error
 func (f UserInfoFunc) Mutate(ctx context.Context, m ent.Mutation) (ent.Value, error) {
 	mv, ok := m.(*ent.UserInfoMutation)
 	if !ok {
-		return nil, fmt.Errorf("unexpected mutation type %T. expect *ent.UserInfoMutation", m)
+		return nil, fmt.Errorf("unexpected mutation user %T. expect *ent.UserInfoMutation", m)
 	}
 	return f(ctx, mv)
 }

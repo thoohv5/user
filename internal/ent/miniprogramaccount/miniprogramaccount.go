@@ -3,7 +3,7 @@
 package miniprogramaccount
 
 const (
-	// Label holds the string label denoting the miniprogramaccount type in the database.
+	// Label holds the string label denoting the miniprogramaccount user in the database.
 	Label = "mini_program_account"
 	// FieldID holds the string denoting the id field in the database.
 	FieldID = "id"

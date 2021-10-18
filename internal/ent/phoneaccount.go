@@ -48,32 +48,32 @@ func (pa *PhoneAccount) assignValues(values ...interface{}) error {
 	}
 	value, ok := values[0].(*sql.NullInt64)
 	if !ok {
-		return fmt.Errorf("unexpected type %T for field id", value)
+		return fmt.Errorf("unexpected user %T for field id", value)
 	}
 	pa.ID = int64(value.Int64)
 	values = values[1:]
 	if value, ok := values[0].(*sql.NullString); !ok {
-		return fmt.Errorf("unexpected type %T for field user_identity", values[0])
+		return fmt.Errorf("unexpected user %T for field user_identity", values[0])
 	} else if value.Valid {
 		pa.UserIdentity = value.String
 	}
 	if value, ok := values[1].(*sql.NullString); !ok {
-		return fmt.Errorf("unexpected type %T for field phone", values[1])
+		return fmt.Errorf("unexpected user %T for field phone", values[1])
 	} else if value.Valid {
 		pa.Phone = value.String
 	}
 	if value, ok := values[2].(*sql.NullTime); !ok {
-		return fmt.Errorf("unexpected type %T for field created_at", values[2])
+		return fmt.Errorf("unexpected user %T for field created_at", values[2])
 	} else if value.Valid {
 		pa.CreatedAt = value.Time
 	}
 	if value, ok := values[3].(*sql.NullTime); !ok {
-		return fmt.Errorf("unexpected type %T for field updated_at", values[3])
+		return fmt.Errorf("unexpected user %T for field updated_at", values[3])
 	} else if value.Valid {
 		pa.UpdatedAt = value.Time
 	}
 	if value, ok := values[4].(*sql.NullTime); !ok {
-		return fmt.Errorf("unexpected type %T for field deleted_at", values[4])
+		return fmt.Errorf("unexpected user %T for field deleted_at", values[4])
 	} else if value.Valid {
 		pa.DeletedAt = value.Time
 	}

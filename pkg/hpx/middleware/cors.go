@@ -21,7 +21,7 @@ func getCorsConfig() cors.Config {
 		AllowMethods: []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders: []string{
 			"Origin", "Content-Type", "Accept", "User-Agent", "Cookie", "Authorization",
-			"X-Auth-Token", "X-Requested-With", "x-wechat-type", "x-platform",
+			"X-Auth-Token", "X-Requested-With", "x-wechat-user", "x-platform",
 		},
 		AllowCredentials: true,
 		ExposeHeaders: []string{

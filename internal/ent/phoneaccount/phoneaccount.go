@@ -3,7 +3,7 @@
 package phoneaccount
 
 const (
-	// Label holds the string label denoting the phoneaccount type in the database.
+	// Label holds the string label denoting the phoneaccount user in the database.
 	Label = "phone_account"
 	// FieldID holds the string denoting the id field in the database.
 	FieldID = "id"

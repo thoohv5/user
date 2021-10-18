@@ -167,7 +167,7 @@ func (uiu *UserInfoUpdate) Save(ctx context.Context) (int, error) {
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*UserInfoMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			uiu.mutation = mutation
 			affected, err = uiu.sqlSave(ctx)
@@ -461,7 +461,7 @@ func (uiuo *UserInfoUpdateOne) Save(ctx context.Context) (*UserInfo, error) {
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*UserInfoMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			uiuo.mutation = mutation
 			node, err = uiuo.sqlSave(ctx)

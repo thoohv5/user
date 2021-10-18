@@ -48,14 +48,14 @@ func (uu *UserUpdate) ClearIdentity() *UserUpdate {
 	return uu
 }
 
-// SetType sets the type field.
+// SetType sets the user field.
 func (uu *UserUpdate) SetType(i int32) *UserUpdate {
 	uu.mutation.ResetType()
 	uu.mutation.SetType(i)
 	return uu
 }
 
-// SetNillableType sets the type field if the given value is not nil.
+// SetNillableType sets the user field if the given value is not nil.
 func (uu *UserUpdate) SetNillableType(i *int32) *UserUpdate {
 	if i != nil {
 		uu.SetType(*i)
@@ -63,7 +63,7 @@ func (uu *UserUpdate) SetNillableType(i *int32) *UserUpdate {
 	return uu
 }
 
-// AddType adds i to type.
+// AddType adds i to user.
 func (uu *UserUpdate) AddType(i int32) *UserUpdate {
 	uu.mutation.AddType(i)
 	return uu
@@ -167,7 +167,7 @@ func (uu *UserUpdate) Save(ctx context.Context) (int, error) {
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*UserMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			uu.mutation = mutation
 			affected, err = uu.sqlSave(ctx)
@@ -342,14 +342,14 @@ func (uuo *UserUpdateOne) ClearIdentity() *UserUpdateOne {
 	return uuo
 }
 
-// SetType sets the type field.
+// SetType sets the user field.
 func (uuo *UserUpdateOne) SetType(i int32) *UserUpdateOne {
 	uuo.mutation.ResetType()
 	uuo.mutation.SetType(i)
 	return uuo
 }
 
-// SetNillableType sets the type field if the given value is not nil.
+// SetNillableType sets the user field if the given value is not nil.
 func (uuo *UserUpdateOne) SetNillableType(i *int32) *UserUpdateOne {
 	if i != nil {
 		uuo.SetType(*i)
@@ -357,7 +357,7 @@ func (uuo *UserUpdateOne) SetNillableType(i *int32) *UserUpdateOne {
 	return uuo
 }
 
-// AddType adds i to type.
+// AddType adds i to user.
 func (uuo *UserUpdateOne) AddType(i int32) *UserUpdateOne {
 	uuo.mutation.AddType(i)
 	return uuo
@@ -461,7 +461,7 @@ func (uuo *UserUpdateOne) Save(ctx context.Context) (*User, error) {
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*UserMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			uuo.mutation = mutation
 			node, err = uuo.sqlSave(ctx)

@@ -145,7 +145,7 @@ func (pau *PhoneAccountUpdate) Save(ctx context.Context) (int, error) {
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*PhoneAccountMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			pau.mutation = mutation
 			affected, err = pau.sqlSave(ctx)
@@ -402,7 +402,7 @@ func (pauo *PhoneAccountUpdateOne) Save(ctx context.Context) (*PhoneAccount, err
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*PhoneAccountMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			pauo.mutation = mutation
 			node, err = pauo.sqlSave(ctx)

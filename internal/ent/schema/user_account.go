@@ -28,7 +28,7 @@ func (UserAccount) Fields() []ent.Field {
 	return []ent.Field{
 		field.Int64("id").Comment(`主键`),
 		field.String("user_identity").Optional().Comment(`用户标识`),
-		field.Int64("account").Optional().Comment(`用户账号`),
+		field.Int64("user").Optional().Comment(`用户账号`),
 		field.String("password").Default("").Comment(`用户登录密码`),
 		field.String("salt").Default("").Comment(`密码盐`),
 		field.Time("created_at").Optional().SchemaType(map[string]string{dialect.MySQL: "datetime"}).Comment(`创建时间`),

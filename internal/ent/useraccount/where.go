@@ -99,7 +99,7 @@ func UserIdentity(v string) predicate.UserAccount {
 	})
 }
 
-// Account applies equality check predicate on the "account" field. It's identical to AccountEQ.
+// Account applies equality check predicate on the "user" field. It's identical to AccountEQ.
 func Account(v int64) predicate.UserAccount {
 	return predicate.UserAccount(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldAccount), v))
@@ -266,21 +266,21 @@ func UserIdentityContainsFold(v string) predicate.UserAccount {
 	})
 }
 
-// AccountEQ applies the EQ predicate on the "account" field.
+// AccountEQ applies the EQ predicate on the "user" field.
 func AccountEQ(v int64) predicate.UserAccount {
 	return predicate.UserAccount(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldAccount), v))
 	})
 }
 
-// AccountNEQ applies the NEQ predicate on the "account" field.
+// AccountNEQ applies the NEQ predicate on the "user" field.
 func AccountNEQ(v int64) predicate.UserAccount {
 	return predicate.UserAccount(func(s *sql.Selector) {
 		s.Where(sql.NEQ(s.C(FieldAccount), v))
 	})
 }
 
-// AccountIn applies the In predicate on the "account" field.
+// AccountIn applies the In predicate on the "user" field.
 func AccountIn(vs ...int64) predicate.UserAccount {
 	v := make([]interface{}, len(vs))
 	for i := range v {
@@ -297,7 +297,7 @@ func AccountIn(vs ...int64) predicate.UserAccount {
 	})
 }
 
-// AccountNotIn applies the NotIn predicate on the "account" field.
+// AccountNotIn applies the NotIn predicate on the "user" field.
 func AccountNotIn(vs ...int64) predicate.UserAccount {
 	v := make([]interface{}, len(vs))
 	for i := range v {
@@ -314,42 +314,42 @@ func AccountNotIn(vs ...int64) predicate.UserAccount {
 	})
 }
 
-// AccountGT applies the GT predicate on the "account" field.
+// AccountGT applies the GT predicate on the "user" field.
 func AccountGT(v int64) predicate.UserAccount {
 	return predicate.UserAccount(func(s *sql.Selector) {
 		s.Where(sql.GT(s.C(FieldAccount), v))
 	})
 }
 
-// AccountGTE applies the GTE predicate on the "account" field.
+// AccountGTE applies the GTE predicate on the "user" field.
 func AccountGTE(v int64) predicate.UserAccount {
 	return predicate.UserAccount(func(s *sql.Selector) {
 		s.Where(sql.GTE(s.C(FieldAccount), v))
 	})
 }
 
-// AccountLT applies the LT predicate on the "account" field.
+// AccountLT applies the LT predicate on the "user" field.
 func AccountLT(v int64) predicate.UserAccount {
 	return predicate.UserAccount(func(s *sql.Selector) {
 		s.Where(sql.LT(s.C(FieldAccount), v))
 	})
 }
 
-// AccountLTE applies the LTE predicate on the "account" field.
+// AccountLTE applies the LTE predicate on the "user" field.
 func AccountLTE(v int64) predicate.UserAccount {
 	return predicate.UserAccount(func(s *sql.Selector) {
 		s.Where(sql.LTE(s.C(FieldAccount), v))
 	})
 }
 
-// AccountIsNil applies the IsNil predicate on the "account" field.
+// AccountIsNil applies the IsNil predicate on the "user" field.
 func AccountIsNil() predicate.UserAccount {
 	return predicate.UserAccount(func(s *sql.Selector) {
 		s.Where(sql.IsNull(s.C(FieldAccount)))
 	})
 }
 
-// AccountNotNil applies the NotNil predicate on the "account" field.
+// AccountNotNil applies the NotNil predicate on the "user" field.
 func AccountNotNil() predicate.UserAccount {
 	return predicate.UserAccount(func(s *sql.Selector) {
 		s.Where(sql.NotNull(s.C(FieldAccount)))

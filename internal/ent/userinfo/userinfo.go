@@ -3,7 +3,7 @@
 package userinfo
 
 const (
-	// Label holds the string label denoting the userinfo type in the database.
+	// Label holds the string label denoting the userinfo user in the database.
 	Label = "user_info"
 	// FieldID holds the string denoting the id field in the database.
 	FieldID = "id"

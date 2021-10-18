@@ -215,7 +215,7 @@ func (mpac *MiniProgramAccountCreate) Save(ctx context.Context) (*MiniProgramAcc
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*MiniProgramAccountMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			if err = mpac.check(); err != nil {
 				return nil, err
@@ -449,7 +449,7 @@ func (mpacb *MiniProgramAccountCreateBulk) Save(ctx context.Context) ([]*MiniPro
 			var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 				mutation, ok := m.(*MiniProgramAccountMutation)
 				if !ok {
-					return nil, fmt.Errorf("unexpected mutation type %T", m)
+					return nil, fmt.Errorf("unexpected mutation user %T", m)
 				}
 				if err := builder.check(); err != nil {
 					return nil, err

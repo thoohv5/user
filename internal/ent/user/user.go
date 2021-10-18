@@ -3,14 +3,14 @@
 package user
 
 const (
-	// Label holds the string label denoting the user type in the database.
+	// Label holds the string label denoting the user user in the database.
 	Label = "user"
 	// FieldID holds the string denoting the id field in the database.
 	FieldID = "id"
 	// FieldIdentity holds the string denoting the identity field in the database.
 	FieldIdentity = "identity"
-	// FieldType holds the string denoting the type field in the database.
-	FieldType = "type"
+	// FieldType holds the string denoting the user field in the database.
+	FieldType = "user"
 	// FieldIsDisable holds the string denoting the is_disable field in the database.
 	FieldIsDisable = "is_disable"
 	// FieldCreatedAt holds the string denoting the created_at field in the database.
@@ -46,7 +46,7 @@ func ValidColumn(column string) bool {
 }
 
 var (
-	// DefaultType holds the default value on creation for the type field.
+	// DefaultType holds the default value on creation for the user field.
 	DefaultType int32
 	// DefaultIsDisable holds the default value on creation for the is_disable field.
 	DefaultIsDisable int32

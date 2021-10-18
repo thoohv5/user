@@ -46,9 +46,9 @@ func init() {
 	miniprogramaccount.DefaultLanguage = miniprogramaccountDescLanguage.Default.(string)
 	userFields := schema.User{}.Fields()
 	_ = userFields
-	// userDescType is the schema descriptor for type field.
+	// userDescType is the schema descriptor for user field.
 	userDescType := userFields[2].Descriptor()
-	// user.DefaultType holds the default value on creation for the type field.
+	// user.DefaultType holds the default value on creation for the user field.
 	user.DefaultType = userDescType.Default.(int32)
 	// userDescIsDisable is the schema descriptor for is_disable field.
 	userDescIsDisable := userFields[3].Descriptor()

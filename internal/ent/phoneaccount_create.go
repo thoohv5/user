@@ -115,7 +115,7 @@ func (pac *PhoneAccountCreate) Save(ctx context.Context) (*PhoneAccount, error) 
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*PhoneAccountMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			if err = pac.check(); err != nil {
 				return nil, err
@@ -239,7 +239,7 @@ func (pacb *PhoneAccountCreateBulk) Save(ctx context.Context) ([]*PhoneAccount, 
 			var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 				mutation, ok := m.(*PhoneAccountMutation)
 				if !ok {
-					return nil, fmt.Errorf("unexpected mutation type %T", m)
+					return nil, fmt.Errorf("unexpected mutation user %T", m)
 				}
 				if err := builder.check(); err != nil {
 					return nil, err

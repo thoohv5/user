@@ -99,7 +99,7 @@ func Identity(v string) predicate.User {
 	})
 }
 
-// Type applies equality check predicate on the "type" field. It's identical to TypeEQ.
+// Type applies equality check predicate on the "user" field. It's identical to TypeEQ.
 func Type(v int32) predicate.User {
 	return predicate.User(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldType), v))
@@ -259,21 +259,21 @@ func IdentityContainsFold(v string) predicate.User {
 	})
 }
 
-// TypeEQ applies the EQ predicate on the "type" field.
+// TypeEQ applies the EQ predicate on the "user" field.
 func TypeEQ(v int32) predicate.User {
 	return predicate.User(func(s *sql.Selector) {
 		s.Where(sql.EQ(s.C(FieldType), v))
 	})
 }
 
-// TypeNEQ applies the NEQ predicate on the "type" field.
+// TypeNEQ applies the NEQ predicate on the "user" field.
 func TypeNEQ(v int32) predicate.User {
 	return predicate.User(func(s *sql.Selector) {
 		s.Where(sql.NEQ(s.C(FieldType), v))
 	})
 }
 
-// TypeIn applies the In predicate on the "type" field.
+// TypeIn applies the In predicate on the "user" field.
 func TypeIn(vs ...int32) predicate.User {
 	v := make([]interface{}, len(vs))
 	for i := range v {
@@ -290,7 +290,7 @@ func TypeIn(vs ...int32) predicate.User {
 	})
 }
 
-// TypeNotIn applies the NotIn predicate on the "type" field.
+// TypeNotIn applies the NotIn predicate on the "user" field.
 func TypeNotIn(vs ...int32) predicate.User {
 	v := make([]interface{}, len(vs))
 	for i := range v {
@@ -307,28 +307,28 @@ func TypeNotIn(vs ...int32) predicate.User {
 	})
 }
 
-// TypeGT applies the GT predicate on the "type" field.
+// TypeGT applies the GT predicate on the "user" field.
 func TypeGT(v int32) predicate.User {
 	return predicate.User(func(s *sql.Selector) {
 		s.Where(sql.GT(s.C(FieldType), v))
 	})
 }
 
-// TypeGTE applies the GTE predicate on the "type" field.
+// TypeGTE applies the GTE predicate on the "user" field.
 func TypeGTE(v int32) predicate.User {
 	return predicate.User(func(s *sql.Selector) {
 		s.Where(sql.GTE(s.C(FieldType), v))
 	})
 }
 
-// TypeLT applies the LT predicate on the "type" field.
+// TypeLT applies the LT predicate on the "user" field.
 func TypeLT(v int32) predicate.User {
 	return predicate.User(func(s *sql.Selector) {
 		s.Where(sql.LT(s.C(FieldType), v))
 	})
 }
 
-// TypeLTE applies the LTE predicate on the "type" field.
+// TypeLTE applies the LTE predicate on the "user" field.
 func TypeLTE(v int32) predicate.User {
 	return predicate.User(func(s *sql.Selector) {
 		s.Where(sql.LTE(s.C(FieldType), v))

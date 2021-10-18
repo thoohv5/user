@@ -23,9 +23,9 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/get-example": {
+        "/detail": {
             "get": {
-                "description": "获取swagger格式",
+                "description": "用户的详情",
                 "consumes": [
                     "application/json"
                 ],
@@ -35,20 +35,16 @@ var doc = `{
                 "tags": [
                     "用户模块"
                 ],
-                "summary": "示例",
+                "summary": "用户详情",
                 "parameters": [
                     {
-                        "type": "integer",
-                        "description": "id",
-                        "name": "id",
-                        "in": "query",
-                        "required": true
-                    },
-                    {
-                        "type": "string",
-                        "description": "姓名",
-                        "name": "name",
-                        "in": "query"
+                        "description": "请求值",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/user.DetailReq"
+                        }
                     }
                 ],
                 "responses": {
@@ -63,7 +59,7 @@ var doc = `{
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/server.GetExampleResp"
+                                            "$ref": "#/definitions/user.DetailResp"
                                         }
                                     }
                                 }
@@ -73,9 +69,9 @@ var doc = `{
                 }
             }
         },
-        "/post-example": {
+        "/edit": {
             "post": {
-                "description": "获取swagger格式",
+                "description": "编辑用户",
                 "consumes": [
                     "application/json"
                 ],
@@ -85,7 +81,7 @@ var doc = `{
                 "tags": [
                     "用户模块"
                 ],
-                "summary": "示例",
+                "summary": "用户编辑",
                 "parameters": [
                     {
                         "description": "请求值",
@@ -93,7 +89,41 @@ var doc = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/server.PostExampleReq"
+                            "$ref": "#/definitions/user.EditReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/http.ResponseEntity"
+                        }
+                    }
+                }
+            }
+        },
+        "/list": {
+            "get": {
+                "description": "用户的列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "用户列表",
+                "parameters": [
+                    {
+                        "description": "请求值",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/user.ListReq"
                         }
                     }
                 ],
@@ -109,7 +139,53 @@ var doc = `{
                                     "type": "object",
                                     "properties": {
                                         "data": {
-                                            "$ref": "#/definitions/server.PostExampleResp"
+                                            "$ref": "#/definitions/user.ListResp"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/register": {
+            "post": {
+                "description": "用户注册的接口",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "用户模块"
+                ],
+                "summary": "用户注册",
+                "parameters": [
+                    {
+                        "description": "请求值",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/user.RegisterReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/http.ResponseEntity"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/user.RegisterResp"
                                         }
                                     }
                                 }
@@ -121,6 +197,165 @@ var doc = `{
         }
     },
     "definitions": {
+        "ent.User": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "description": "CreatedAt holds the value of the \"created_at\" field.",
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "description": "DeletedAt holds the value of the \"deleted_at\" field.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID of the ent.",
+                    "type": "integer"
+                },
+                "identity": {
+                    "description": "Identity holds the value of the \"identity\" field.",
+                    "type": "string"
+                },
+                "is_disable": {
+                    "description": "IsDisable holds the value of the \"is_disable\" field.",
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "description": "UpdatedAt holds the value of the \"updated_at\" field.",
+                    "type": "string"
+                },
+                "user": {
+                    "description": "Type holds the value of the \"user\" field.",
+                    "type": "integer"
+                }
+            }
+        },
+        "ent.UserAccount": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "description": "CreatedAt holds the value of the \"created_at\" field.",
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "description": "DeletedAt holds the value of the \"deleted_at\" field.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID of the ent.",
+                    "type": "integer"
+                },
+                "password": {
+                    "description": "Password holds the value of the \"password\" field.",
+                    "type": "string"
+                },
+                "salt": {
+                    "description": "Salt holds the value of the \"salt\" field.",
+                    "type": "string"
+                },
+                "updated_at": {
+                    "description": "UpdatedAt holds the value of the \"updated_at\" field.",
+                    "type": "string"
+                },
+                "user": {
+                    "description": "Account holds the value of the \"user\" field.",
+                    "type": "integer"
+                },
+                "user_identity": {
+                    "description": "UserIdentity holds the value of the \"user_identity\" field.",
+                    "type": "string"
+                }
+            }
+        },
+        "ent.UserExtend": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "description": "CreatedAt holds the value of the \"created_at\" field.",
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "description": "DeletedAt holds the value of the \"deleted_at\" field.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "ID of the ent.",
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "description": "UpdatedAt holds the value of the \"updated_at\" field.",
+                    "type": "string"
+                },
+                "user_identity": {
+                    "description": "UserIdentity holds the value of the \"user_identity\" field.",
+                    "type": "string"
+                }
+            }
+        },
+        "ent.UserInfo": {
+            "type": "object",
+            "properties": {
+                "channel": {
+                    "description": "Channel holds the value of the \"channel\" field.",
+                    "type": "integer"
+                },
+                "created_at": {
+                    "description": "CreatedAt holds the value of the \"created_at\" field.",
+                    "type": "string"
+                },
+                "deleted_at": {
+                    "description": "DeletedAt holds the value of the \"deleted_at\" field.",
+                    "type": "string"
+                },
+                "form": {
+                    "description": "Form holds the value of the \"form\" field.",
+                    "type": "integer"
+                },
+                "id": {
+                    "description": "ID of the ent.",
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "description": "UpdatedAt holds the value of the \"updated_at\" field.",
+                    "type": "string"
+                },
+                "user_identity": {
+                    "description": "UserIdentity holds the value of the \"user_identity\" field.",
+                    "type": "string"
+                }
+            }
+        },
+        "entity.DetailEntity": {
+            "type": "object",
+            "properties": {
+                "userAccount": {
+                    "$ref": "#/definitions/ent.UserAccount"
+                },
+                "userEntity": {
+                    "$ref": "#/definitions/ent.User"
+                },
+                "userExtendEntity": {
+                    "$ref": "#/definitions/ent.UserExtend"
+                },
+                "userInfoEntity": {
+                    "$ref": "#/definitions/ent.UserInfo"
+                }
+            }
+        },
+        "entity.UserBasis": {
+            "type": "object",
+            "properties": {
+                "userEntity": {
+                    "$ref": "#/definitions/ent.User"
+                },
+                "userExtendEntity": {
+                    "$ref": "#/definitions/ent.UserExtend"
+                },
+                "userInfoEntity": {
+                    "$ref": "#/definitions/ent.UserInfo"
+                }
+            }
+        },
         "http.ResponseEntity": {
             "type": "object",
             "properties": {
@@ -137,44 +372,104 @@ var doc = `{
                 }
             }
         },
-        "server.GetExampleResp": {
+        "user.DetailReq": {
             "type": "object",
             "properties": {
-                "id": {
-                    "description": "Id",
+                "accountType": {
+                    "description": "账号类型：0-用户密码，1-手机号码",
                     "type": "integer"
                 },
-                "name": {
-                    "description": "名称",
+                "identity": {
+                    "description": "唯一标识",
                     "type": "string"
                 }
             }
         },
-        "server.PostExampleReq": {
+        "user.DetailResp": {
+            "type": "object",
+            "properties": {
+                "detail": {
+                    "$ref": "#/definitions/entity.DetailEntity"
+                }
+            }
+        },
+        "user.EditReq": {
             "type": "object",
             "required": [
-                "id"
+                "userIdentity"
             ],
             "properties": {
-                "id": {
-                    "description": "Id",
+                "accountType": {
+                    "description": "账号类型：0-用户密码，1-手机号码",
                     "type": "integer"
                 },
-                "name": {
-                    "description": "名称",
+                "extra": {
+                    "description": "额外字段，字段为json，格式：",
+                    "type": "string"
+                },
+                "identity": {
+                    "description": "唯一标识",
+                    "type": "string"
+                },
+                "userIdentity": {
+                    "description": "用户标识",
                     "type": "string"
                 }
             }
         },
-        "server.PostExampleResp": {
+        "user.ListReq": {
             "type": "object",
             "properties": {
-                "id": {
-                    "description": "Id",
+                "limit": {
+                    "description": "范围，默认：15",
                     "type": "integer"
                 },
-                "name": {
-                    "description": "名称",
+                "start": {
+                    "description": "开始，默认：0",
+                    "type": "integer"
+                },
+                "userType": {
+                    "description": "用户类型",
+                    "type": "integer"
+                }
+            }
+        },
+        "user.ListResp": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/entity.UserBasis"
+                    }
+                }
+            }
+        },
+        "user.RegisterReq": {
+            "type": "object",
+            "required": [
+                "identity"
+            ],
+            "properties": {
+                "accountType": {
+                    "description": "账号类型：0-用户密码，1-手机号码",
+                    "type": "integer"
+                },
+                "extra": {
+                    "description": "额外字段，字段为json，格式：",
+                    "type": "string"
+                },
+                "identity": {
+                    "description": "唯一标识",
+                    "type": "string"
+                }
+            }
+        },
+        "user.RegisterResp": {
+            "type": "object",
+            "properties": {
+                "userIdentity": {
+                    "description": "用户标识",
                     "type": "string"
                 }
             }

@@ -103,7 +103,7 @@ linters-settings:
     threshold: 100
 
   errcheck:
-    # report about not checking of errors in type assertions: `a := b.(MyStruct)`;
+    # report about not checking of errors in user assertions: `a := b.(MyStruct)`;
     # default is false: such cases aren't reported by default.
     check-type-assertions: false
 
@@ -131,7 +131,7 @@ linters-settings:
   errorlint:
     # Check whether fmt.Errorf uses the %w verb for formatting errors. See the readme for caveats
     errorf: true
-    # Check for plain type assertions and type switches
+    # Check for plain user assertions and user switches
     asserts: true
     # Check for plain error comparisons
     comparison: true
@@ -288,10 +288,10 @@ linters-settings:
   goheader:
     values:
       const:
-      # define here const type values in format k:v, for example:
+      # define here const user values in format k:v, for example:
       # COMPANY: MY COMPANY
       regexp:
-      # define here regexp type values, for example
+      # define here regexp user values, for example
       # AUTHOR: .*@mycompany\.com
     template: "# |-"
     # put here copyright header template for source code files, for example:
@@ -602,7 +602,7 @@ linters-settings:
       # use the struct field name to check the name of the struct tag
       use-field-name: true
       rules:
-        # any struct tag type can be used.
+        # any struct tag user can be used.
         # support string case: `camel`, `pascal`, `kebab`, `snake`, `goCamel`, `goPascal`, `goKebab`, `goSnake`, `upper`, `lower`
         json: camel
         yaml: camel

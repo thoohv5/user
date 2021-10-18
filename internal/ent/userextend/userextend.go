@@ -3,7 +3,7 @@
 package userextend
 
 const (
-	// Label holds the string label denoting the userextend type in the database.
+	// Label holds the string label denoting the userextend user in the database.
 	Label = "user_extend"
 	// FieldID holds the string denoting the id field in the database.
 	FieldID = "id"

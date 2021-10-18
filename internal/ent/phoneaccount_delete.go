@@ -39,7 +39,7 @@ func (pad *PhoneAccountDelete) Exec(ctx context.Context) (int, error) {
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*PhoneAccountMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			pad.mutation = mutation
 			affected, err = pad.sqlExec(ctx)

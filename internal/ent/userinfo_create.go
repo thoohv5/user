@@ -131,7 +131,7 @@ func (uic *UserInfoCreate) Save(ctx context.Context) (*UserInfo, error) {
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*UserInfoMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			if err = uic.check(); err != nil {
 				return nil, err
@@ -282,7 +282,7 @@ func (uicb *UserInfoCreateBulk) Save(ctx context.Context) ([]*UserInfo, error) {
 			var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 				mutation, ok := m.(*UserInfoMutation)
 				if !ok {
-					return nil, fmt.Errorf("unexpected mutation type %T", m)
+					return nil, fmt.Errorf("unexpected mutation user %T", m)
 				}
 				if err := builder.check(); err != nil {
 					return nil, err

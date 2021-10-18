@@ -18,8 +18,8 @@ type User struct {
 	ID int64 `json:"id,omitempty"`
 	// Identity holds the value of the "identity" field.
 	Identity string `json:"identity,omitempty"`
-	// Type holds the value of the "type" field.
-	Type int32 `json:"type,omitempty"`
+	// Type holds the value of the "user" field.
+	Type int32 `json:"user,omitempty"`
 	// IsDisable holds the value of the "is_disable" field.
 	IsDisable int32 `json:"is_disable,omitempty"`
 	// CreatedAt holds the value of the "created_at" field.
@@ -35,7 +35,7 @@ func (*User) scanValues() []interface{} {
 	return []interface{}{
 		&sql.NullInt64{},  // id
 		&sql.NullString{}, // identity
-		&sql.NullInt64{},  // type
+		&sql.NullInt64{},  // user
 		&sql.NullInt64{},  // is_disable
 		&sql.NullTime{},   // created_at
 		&sql.NullTime{},   // updated_at
@@ -51,37 +51,37 @@ func (u *User) assignValues(values ...interface{}) error {
 	}
 	value, ok := values[0].(*sql.NullInt64)
 	if !ok {
-		return fmt.Errorf("unexpected type %T for field id", value)
+		return fmt.Errorf("unexpected user %T for field id", value)
 	}
 	u.ID = int64(value.Int64)
 	values = values[1:]
 	if value, ok := values[0].(*sql.NullString); !ok {
-		return fmt.Errorf("unexpected type %T for field identity", values[0])
+		return fmt.Errorf("unexpected user %T for field identity", values[0])
 	} else if value.Valid {
 		u.Identity = value.String
 	}
 	if value, ok := values[1].(*sql.NullInt64); !ok {
-		return fmt.Errorf("unexpected type %T for field type", values[1])
+		return fmt.Errorf("unexpected user %T for field user", values[1])
 	} else if value.Valid {
 		u.Type = int32(value.Int64)
 	}
 	if value, ok := values[2].(*sql.NullInt64); !ok {
-		return fmt.Errorf("unexpected type %T for field is_disable", values[2])
+		return fmt.Errorf("unexpected user %T for field is_disable", values[2])
 	} else if value.Valid {
 		u.IsDisable = int32(value.Int64)
 	}
 	if value, ok := values[3].(*sql.NullTime); !ok {
-		return fmt.Errorf("unexpected type %T for field created_at", values[3])
+		return fmt.Errorf("unexpected user %T for field created_at", values[3])
 	} else if value.Valid {
 		u.CreatedAt = value.Time
 	}
 	if value, ok := values[4].(*sql.NullTime); !ok {
-		return fmt.Errorf("unexpected type %T for field updated_at", values[4])
+		return fmt.Errorf("unexpected user %T for field updated_at", values[4])
 	} else if value.Valid {
 		u.UpdatedAt = value.Time
 	}
 	if value, ok := values[5].(*sql.NullTime); !ok {
-		return fmt.Errorf("unexpected type %T for field deleted_at", values[5])
+		return fmt.Errorf("unexpected user %T for field deleted_at", values[5])
 	} else if value.Valid {
 		u.DeletedAt = value.Time
 	}
@@ -113,7 +113,7 @@ func (u *User) String() string {
 	builder.WriteString(fmt.Sprintf("id=%v", u.ID))
 	builder.WriteString(", identity=")
 	builder.WriteString(u.Identity)
-	builder.WriteString(", type=")
+	builder.WriteString(", user=")
 	builder.WriteString(fmt.Sprintf("%v", u.Type))
 	builder.WriteString(", is_disable=")
 	builder.WriteString(fmt.Sprintf("%v", u.IsDisable))

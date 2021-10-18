@@ -39,7 +39,7 @@ func (uid *UserInfoDelete) Exec(ctx context.Context) (int, error) {
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*UserInfoMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			uid.mutation = mutation
 			affected, err = uid.sqlExec(ctx)

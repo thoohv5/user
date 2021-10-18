@@ -69,67 +69,67 @@ func (mpa *MiniProgramAccount) assignValues(values ...interface{}) error {
 	}
 	value, ok := values[0].(*sql.NullInt64)
 	if !ok {
-		return fmt.Errorf("unexpected type %T for field id", value)
+		return fmt.Errorf("unexpected user %T for field id", value)
 	}
 	mpa.ID = int64(value.Int64)
 	values = values[1:]
 	if value, ok := values[0].(*sql.NullString); !ok {
-		return fmt.Errorf("unexpected type %T for field user_identity", values[0])
+		return fmt.Errorf("unexpected user %T for field user_identity", values[0])
 	} else if value.Valid {
 		mpa.UserIdentity = value.String
 	}
 	if value, ok := values[1].(*sql.NullString); !ok {
-		return fmt.Errorf("unexpected type %T for field open_id", values[1])
+		return fmt.Errorf("unexpected user %T for field open_id", values[1])
 	} else if value.Valid {
 		mpa.OpenID = value.String
 	}
 	if value, ok := values[2].(*sql.NullString); !ok {
-		return fmt.Errorf("unexpected type %T for field nick_name", values[2])
+		return fmt.Errorf("unexpected user %T for field nick_name", values[2])
 	} else if value.Valid {
 		mpa.NickName = value.String
 	}
 	if value, ok := values[3].(*sql.NullString); !ok {
-		return fmt.Errorf("unexpected type %T for field avatar_url", values[3])
+		return fmt.Errorf("unexpected user %T for field avatar_url", values[3])
 	} else if value.Valid {
 		mpa.AvatarURL = value.String
 	}
 	if value, ok := values[4].(*sql.NullInt64); !ok {
-		return fmt.Errorf("unexpected type %T for field gender", values[4])
+		return fmt.Errorf("unexpected user %T for field gender", values[4])
 	} else if value.Valid {
 		mpa.Gender = int32(value.Int64)
 	}
 	if value, ok := values[5].(*sql.NullString); !ok {
-		return fmt.Errorf("unexpected type %T for field country", values[5])
+		return fmt.Errorf("unexpected user %T for field country", values[5])
 	} else if value.Valid {
 		mpa.Country = value.String
 	}
 	if value, ok := values[6].(*sql.NullString); !ok {
-		return fmt.Errorf("unexpected type %T for field province", values[6])
+		return fmt.Errorf("unexpected user %T for field province", values[6])
 	} else if value.Valid {
 		mpa.Province = value.String
 	}
 	if value, ok := values[7].(*sql.NullString); !ok {
-		return fmt.Errorf("unexpected type %T for field city", values[7])
+		return fmt.Errorf("unexpected user %T for field city", values[7])
 	} else if value.Valid {
 		mpa.City = value.String
 	}
 	if value, ok := values[8].(*sql.NullString); !ok {
-		return fmt.Errorf("unexpected type %T for field language", values[8])
+		return fmt.Errorf("unexpected user %T for field language", values[8])
 	} else if value.Valid {
 		mpa.Language = value.String
 	}
 	if value, ok := values[9].(*sql.NullTime); !ok {
-		return fmt.Errorf("unexpected type %T for field created_at", values[9])
+		return fmt.Errorf("unexpected user %T for field created_at", values[9])
 	} else if value.Valid {
 		mpa.CreatedAt = value.Time
 	}
 	if value, ok := values[10].(*sql.NullTime); !ok {
-		return fmt.Errorf("unexpected type %T for field updated_at", values[10])
+		return fmt.Errorf("unexpected user %T for field updated_at", values[10])
 	} else if value.Valid {
 		mpa.UpdatedAt = value.Time
 	}
 	if value, ok := values[11].(*sql.NullTime); !ok {
-		return fmt.Errorf("unexpected type %T for field deleted_at", values[11])
+		return fmt.Errorf("unexpected user %T for field deleted_at", values[11])
 	} else if value.Valid {
 		mpa.DeletedAt = value.Time
 	}

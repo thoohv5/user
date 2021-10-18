@@ -34,13 +34,13 @@ func (uc *UserCreate) SetNillableIdentity(s *string) *UserCreate {
 	return uc
 }
 
-// SetType sets the type field.
+// SetType sets the user field.
 func (uc *UserCreate) SetType(i int32) *UserCreate {
 	uc.mutation.SetType(i)
 	return uc
 }
 
-// SetNillableType sets the type field if the given value is not nil.
+// SetNillableType sets the user field if the given value is not nil.
 func (uc *UserCreate) SetNillableType(i *int32) *UserCreate {
 	if i != nil {
 		uc.SetType(*i)
@@ -131,7 +131,7 @@ func (uc *UserCreate) Save(ctx context.Context) (*User, error) {
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*UserMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			if err = uc.check(); err != nil {
 				return nil, err
@@ -175,7 +175,7 @@ func (uc *UserCreate) defaults() {
 // check runs all checks and user-defined validators on the builder.
 func (uc *UserCreate) check() error {
 	if _, ok := uc.mutation.GetType(); !ok {
-		return &ValidationError{Name: "type", err: errors.New("ent: missing required field \"type\"")}
+		return &ValidationError{Name: "user", err: errors.New("ent: missing required field \"user\"")}
 	}
 	if _, ok := uc.mutation.IsDisable(); !ok {
 		return &ValidationError{Name: "is_disable", err: errors.New("ent: missing required field \"is_disable\"")}
@@ -282,7 +282,7 @@ func (ucb *UserCreateBulk) Save(ctx context.Context) ([]*User, error) {
 			var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 				mutation, ok := m.(*UserMutation)
 				if !ok {
-					return nil, fmt.Errorf("unexpected mutation type %T", m)
+					return nil, fmt.Errorf("unexpected mutation user %T", m)
 				}
 				if err := builder.check(); err != nil {
 					return nil, err

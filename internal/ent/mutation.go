@@ -679,7 +679,7 @@ func (m *MiniProgramAccountMutation) Op() Op {
 	return m.op
 }
 
-// Type returns the node type of this mutation (MiniProgramAccount).
+// Type returns the node user of this mutation (MiniProgramAccount).
 func (m *MiniProgramAccountMutation) Type() string {
 	return m.typ
 }
@@ -796,90 +796,90 @@ func (m *MiniProgramAccountMutation) OldField(ctx context.Context, name string) 
 
 // SetField sets the value for the given name. It returns an
 // error if the field is not defined in the schema, or if the
-// type mismatch the field type.
+// user mismatch the field user.
 func (m *MiniProgramAccountMutation) SetField(name string, value ent.Value) error {
 	switch name {
 	case miniprogramaccount.FieldUserIdentity:
 		v, ok := value.(string)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetUserIdentity(v)
 		return nil
 	case miniprogramaccount.FieldOpenID:
 		v, ok := value.(string)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetOpenID(v)
 		return nil
 	case miniprogramaccount.FieldNickName:
 		v, ok := value.(string)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetNickName(v)
 		return nil
 	case miniprogramaccount.FieldAvatarURL:
 		v, ok := value.(string)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetAvatarURL(v)
 		return nil
 	case miniprogramaccount.FieldGender:
 		v, ok := value.(int32)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetGender(v)
 		return nil
 	case miniprogramaccount.FieldCountry:
 		v, ok := value.(string)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetCountry(v)
 		return nil
 	case miniprogramaccount.FieldProvince:
 		v, ok := value.(string)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetProvince(v)
 		return nil
 	case miniprogramaccount.FieldCity:
 		v, ok := value.(string)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetCity(v)
 		return nil
 	case miniprogramaccount.FieldLanguage:
 		v, ok := value.(string)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetLanguage(v)
 		return nil
 	case miniprogramaccount.FieldCreatedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetCreatedAt(v)
 		return nil
 	case miniprogramaccount.FieldUpdatedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetUpdatedAt(v)
 		return nil
 	case miniprogramaccount.FieldDeletedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetDeletedAt(v)
 		return nil
@@ -910,13 +910,13 @@ func (m *MiniProgramAccountMutation) AddedField(name string) (ent.Value, bool) {
 
 // AddField adds the value for the given name. It returns an
 // error if the field is not defined in the schema, or if the
-// type mismatch the field type.
+// user mismatch the field user.
 func (m *MiniProgramAccountMutation) AddField(name string, value ent.Value) error {
 	switch name {
 	case miniprogramaccount.FieldGender:
 		v, ok := value.(int32)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.AddGender(v)
 		return nil
@@ -1430,7 +1430,7 @@ func (m *PhoneAccountMutation) Op() Op {
 	return m.op
 }
 
-// Type returns the node type of this mutation (PhoneAccount).
+// Type returns the node user of this mutation (PhoneAccount).
 func (m *PhoneAccountMutation) Type() string {
 	return m.typ
 }
@@ -1498,41 +1498,41 @@ func (m *PhoneAccountMutation) OldField(ctx context.Context, name string) (ent.V
 
 // SetField sets the value for the given name. It returns an
 // error if the field is not defined in the schema, or if the
-// type mismatch the field type.
+// user mismatch the field user.
 func (m *PhoneAccountMutation) SetField(name string, value ent.Value) error {
 	switch name {
 	case phoneaccount.FieldUserIdentity:
 		v, ok := value.(string)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetUserIdentity(v)
 		return nil
 	case phoneaccount.FieldPhone:
 		v, ok := value.(string)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetPhone(v)
 		return nil
 	case phoneaccount.FieldCreatedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetCreatedAt(v)
 		return nil
 	case phoneaccount.FieldUpdatedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetUpdatedAt(v)
 		return nil
 	case phoneaccount.FieldDeletedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetDeletedAt(v)
 		return nil
@@ -1555,7 +1555,7 @@ func (m *PhoneAccountMutation) AddedField(name string) (ent.Value, bool) {
 
 // AddField adds the value for the given name. It returns an
 // error if the field is not defined in the schema, or if the
-// type mismatch the field type.
+// user mismatch the field user.
 func (m *PhoneAccountMutation) AddField(name string, value ent.Value) error {
 	switch name {
 	}
@@ -1845,13 +1845,13 @@ func (m *UserMutation) ResetIdentity() {
 	delete(m.clearedFields, user.FieldIdentity)
 }
 
-// SetType sets the type field.
+// SetType sets the user field.
 func (m *UserMutation) SetType(i int32) {
 	m._type = &i
 	m.add_type = nil
 }
 
-// GetType returns the type value in the mutation.
+// GetType returns the user value in the mutation.
 func (m *UserMutation) GetType() (r int32, exists bool) {
 	v := m._type
 	if v == nil {
@@ -1860,7 +1860,7 @@ func (m *UserMutation) GetType() (r int32, exists bool) {
 	return *v, true
 }
 
-// OldType returns the old type value of the User.
+// OldType returns the old user value of the User.
 // If the User object wasn't provided to the builder, the object is fetched
 // from the database.
 // An error is returned if the mutation operation is not UpdateOne, or database query fails.
@@ -1878,7 +1878,7 @@ func (m *UserMutation) OldType(ctx context.Context) (v int32, err error) {
 	return oldValue.Type, nil
 }
 
-// AddType adds i to type.
+// AddType adds i to user.
 func (m *UserMutation) AddType(i int32) {
 	if m.add_type != nil {
 		*m.add_type += i
@@ -1887,7 +1887,7 @@ func (m *UserMutation) AddType(i int32) {
 	}
 }
 
-// AddedType returns the value that was added to the type field in this mutation.
+// AddedType returns the value that was added to the user field in this mutation.
 func (m *UserMutation) AddedType() (r int32, exists bool) {
 	v := m.add_type
 	if v == nil {
@@ -1896,7 +1896,7 @@ func (m *UserMutation) AddedType() (r int32, exists bool) {
 	return *v, true
 }
 
-// ResetType reset all changes of the "type" field.
+// ResetType reset all changes of the "user" field.
 func (m *UserMutation) ResetType() {
 	m._type = nil
 	m.add_type = nil
@@ -2114,7 +2114,7 @@ func (m *UserMutation) Op() Op {
 	return m.op
 }
 
-// Type returns the node type of this mutation (User).
+// Type returns the node user of this mutation (User).
 func (m *UserMutation) Type() string {
 	return m.typ
 }
@@ -2189,48 +2189,48 @@ func (m *UserMutation) OldField(ctx context.Context, name string) (ent.Value, er
 
 // SetField sets the value for the given name. It returns an
 // error if the field is not defined in the schema, or if the
-// type mismatch the field type.
+// user mismatch the field user.
 func (m *UserMutation) SetField(name string, value ent.Value) error {
 	switch name {
 	case user.FieldIdentity:
 		v, ok := value.(string)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetIdentity(v)
 		return nil
 	case user.FieldType:
 		v, ok := value.(int32)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetType(v)
 		return nil
 	case user.FieldIsDisable:
 		v, ok := value.(int32)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetIsDisable(v)
 		return nil
 	case user.FieldCreatedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetCreatedAt(v)
 		return nil
 	case user.FieldUpdatedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetUpdatedAt(v)
 		return nil
 	case user.FieldDeletedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetDeletedAt(v)
 		return nil
@@ -2266,20 +2266,20 @@ func (m *UserMutation) AddedField(name string) (ent.Value, bool) {
 
 // AddField adds the value for the given name. It returns an
 // error if the field is not defined in the schema, or if the
-// type mismatch the field type.
+// user mismatch the field user.
 func (m *UserMutation) AddField(name string, value ent.Value) error {
 	switch name {
 	case user.FieldType:
 		v, ok := value.(int32)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.AddType(v)
 		return nil
 	case user.FieldIsDisable:
 		v, ok := value.(int32)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.AddIsDisable(v)
 		return nil
@@ -2567,13 +2567,13 @@ func (m *UserAccountMutation) ResetUserIdentity() {
 	delete(m.clearedFields, useraccount.FieldUserIdentity)
 }
 
-// SetAccount sets the account field.
+// SetAccount sets the user field.
 func (m *UserAccountMutation) SetAccount(i int64) {
 	m.account = &i
 	m.addaccount = nil
 }
 
-// Account returns the account value in the mutation.
+// Account returns the user value in the mutation.
 func (m *UserAccountMutation) Account() (r int64, exists bool) {
 	v := m.account
 	if v == nil {
@@ -2582,7 +2582,7 @@ func (m *UserAccountMutation) Account() (r int64, exists bool) {
 	return *v, true
 }
 
-// OldAccount returns the old account value of the UserAccount.
+// OldAccount returns the old user value of the UserAccount.
 // If the UserAccount object wasn't provided to the builder, the object is fetched
 // from the database.
 // An error is returned if the mutation operation is not UpdateOne, or database query fails.
@@ -2600,7 +2600,7 @@ func (m *UserAccountMutation) OldAccount(ctx context.Context) (v int64, err erro
 	return oldValue.Account, nil
 }
 
-// AddAccount adds i to account.
+// AddAccount adds i to user.
 func (m *UserAccountMutation) AddAccount(i int64) {
 	if m.addaccount != nil {
 		*m.addaccount += i
@@ -2609,7 +2609,7 @@ func (m *UserAccountMutation) AddAccount(i int64) {
 	}
 }
 
-// AddedAccount returns the value that was added to the account field in this mutation.
+// AddedAccount returns the value that was added to the user field in this mutation.
 func (m *UserAccountMutation) AddedAccount() (r int64, exists bool) {
 	v := m.addaccount
 	if v == nil {
@@ -2618,20 +2618,20 @@ func (m *UserAccountMutation) AddedAccount() (r int64, exists bool) {
 	return *v, true
 }
 
-// ClearAccount clears the value of account.
+// ClearAccount clears the value of user.
 func (m *UserAccountMutation) ClearAccount() {
 	m.account = nil
 	m.addaccount = nil
 	m.clearedFields[useraccount.FieldAccount] = struct{}{}
 }
 
-// AccountCleared returns if the field account was cleared in this mutation.
+// AccountCleared returns if the field user was cleared in this mutation.
 func (m *UserAccountMutation) AccountCleared() bool {
 	_, ok := m.clearedFields[useraccount.FieldAccount]
 	return ok
 }
 
-// ResetAccount reset all changes of the "account" field.
+// ResetAccount reset all changes of the "user" field.
 func (m *UserAccountMutation) ResetAccount() {
 	m.account = nil
 	m.addaccount = nil
@@ -2867,7 +2867,7 @@ func (m *UserAccountMutation) Op() Op {
 	return m.op
 }
 
-// Type returns the node type of this mutation (UserAccount).
+// Type returns the node user of this mutation (UserAccount).
 func (m *UserAccountMutation) Type() string {
 	return m.typ
 }
@@ -2949,55 +2949,55 @@ func (m *UserAccountMutation) OldField(ctx context.Context, name string) (ent.Va
 
 // SetField sets the value for the given name. It returns an
 // error if the field is not defined in the schema, or if the
-// type mismatch the field type.
+// user mismatch the field user.
 func (m *UserAccountMutation) SetField(name string, value ent.Value) error {
 	switch name {
 	case useraccount.FieldUserIdentity:
 		v, ok := value.(string)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetUserIdentity(v)
 		return nil
 	case useraccount.FieldAccount:
 		v, ok := value.(int64)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetAccount(v)
 		return nil
 	case useraccount.FieldPassword:
 		v, ok := value.(string)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetPassword(v)
 		return nil
 	case useraccount.FieldSalt:
 		v, ok := value.(string)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetSalt(v)
 		return nil
 	case useraccount.FieldCreatedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetCreatedAt(v)
 		return nil
 	case useraccount.FieldUpdatedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetUpdatedAt(v)
 		return nil
 	case useraccount.FieldDeletedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetDeletedAt(v)
 		return nil
@@ -3028,13 +3028,13 @@ func (m *UserAccountMutation) AddedField(name string) (ent.Value, bool) {
 
 // AddField adds the value for the given name. It returns an
 // error if the field is not defined in the schema, or if the
-// type mismatch the field type.
+// user mismatch the field user.
 func (m *UserAccountMutation) AddField(name string, value ent.Value) error {
 	switch name {
 	case useraccount.FieldAccount:
 		v, ok := value.(int64)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.AddAccount(v)
 		return nil
@@ -3482,7 +3482,7 @@ func (m *UserExtendMutation) Op() Op {
 	return m.op
 }
 
-// Type returns the node type of this mutation (UserExtend).
+// Type returns the node user of this mutation (UserExtend).
 func (m *UserExtendMutation) Type() string {
 	return m.typ
 }
@@ -3543,34 +3543,34 @@ func (m *UserExtendMutation) OldField(ctx context.Context, name string) (ent.Val
 
 // SetField sets the value for the given name. It returns an
 // error if the field is not defined in the schema, or if the
-// type mismatch the field type.
+// user mismatch the field user.
 func (m *UserExtendMutation) SetField(name string, value ent.Value) error {
 	switch name {
 	case userextend.FieldUserIdentity:
 		v, ok := value.(string)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetUserIdentity(v)
 		return nil
 	case userextend.FieldCreatedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetCreatedAt(v)
 		return nil
 	case userextend.FieldUpdatedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetUpdatedAt(v)
 		return nil
 	case userextend.FieldDeletedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetDeletedAt(v)
 		return nil
@@ -3593,7 +3593,7 @@ func (m *UserExtendMutation) AddedField(name string) (ent.Value, bool) {
 
 // AddField adds the value for the given name. It returns an
 // error if the field is not defined in the schema, or if the
-// type mismatch the field type.
+// user mismatch the field user.
 func (m *UserExtendMutation) AddField(name string, value ent.Value) error {
 	switch name {
 	}
@@ -4143,7 +4143,7 @@ func (m *UserInfoMutation) Op() Op {
 	return m.op
 }
 
-// Type returns the node type of this mutation (UserInfo).
+// Type returns the node user of this mutation (UserInfo).
 func (m *UserInfoMutation) Type() string {
 	return m.typ
 }
@@ -4218,48 +4218,48 @@ func (m *UserInfoMutation) OldField(ctx context.Context, name string) (ent.Value
 
 // SetField sets the value for the given name. It returns an
 // error if the field is not defined in the schema, or if the
-// type mismatch the field type.
+// user mismatch the field user.
 func (m *UserInfoMutation) SetField(name string, value ent.Value) error {
 	switch name {
 	case userinfo.FieldUserIdentity:
 		v, ok := value.(string)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetUserIdentity(v)
 		return nil
 	case userinfo.FieldChannel:
 		v, ok := value.(int32)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetChannel(v)
 		return nil
 	case userinfo.FieldForm:
 		v, ok := value.(int32)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetForm(v)
 		return nil
 	case userinfo.FieldCreatedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetCreatedAt(v)
 		return nil
 	case userinfo.FieldUpdatedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetUpdatedAt(v)
 		return nil
 	case userinfo.FieldDeletedAt:
 		v, ok := value.(time.Time)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.SetDeletedAt(v)
 		return nil
@@ -4295,20 +4295,20 @@ func (m *UserInfoMutation) AddedField(name string) (ent.Value, bool) {
 
 // AddField adds the value for the given name. It returns an
 // error if the field is not defined in the schema, or if the
-// type mismatch the field type.
+// user mismatch the field user.
 func (m *UserInfoMutation) AddField(name string, value ent.Value) error {
 	switch name {
 	case userinfo.FieldChannel:
 		v, ok := value.(int32)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.AddChannel(v)
 		return nil
 	case userinfo.FieldForm:
 		v, ok := value.(int32)
 		if !ok {
-			return fmt.Errorf("unexpected type %T for field %s", value, name)
+			return fmt.Errorf("unexpected user %T for field %s", value, name)
 		}
 		m.AddForm(v)
 		return nil

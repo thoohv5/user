@@ -51,7 +51,7 @@ var (
 	UserColumns = []*schema.Column{
 		{Name: "id", Type: field.TypeInt, Increment: true},
 		{Name: "identity", Type: field.TypeString, Nullable: true},
-		{Name: "type", Type: field.TypeInt32},
+		{Name: "user", Type: field.TypeInt32},
 		{Name: "is_disable", Type: field.TypeInt32},
 		{Name: "created_at", Type: field.TypeTime, Nullable: true, SchemaType: map[string]string{"mysql": "datetime"}},
 		{Name: "updated_at", Type: field.TypeTime, Nullable: true, SchemaType: map[string]string{"mysql": "datetime"}},
@@ -68,7 +68,7 @@ var (
 	UserAccountColumns = []*schema.Column{
 		{Name: "id", Type: field.TypeInt, Increment: true},
 		{Name: "user_identity", Type: field.TypeString, Nullable: true},
-		{Name: "account", Type: field.TypeInt64, Nullable: true},
+		{Name: "user", Type: field.TypeInt64, Nullable: true},
 		{Name: "password", Type: field.TypeString, Default: ""},
 		{Name: "salt", Type: field.TypeString, Default: ""},
 		{Name: "created_at", Type: field.TypeTime, Nullable: true, SchemaType: map[string]string{"mysql": "datetime"}},

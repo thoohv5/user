@@ -39,7 +39,7 @@ func (mpad *MiniProgramAccountDelete) Exec(ctx context.Context) (int, error) {
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*MiniProgramAccountMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			mpad.mutation = mutation
 			affected, err = mpad.sqlExec(ctx)

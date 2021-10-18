@@ -18,8 +18,8 @@ type UserAccount struct {
 	ID int64 `json:"id,omitempty"`
 	// UserIdentity holds the value of the "user_identity" field.
 	UserIdentity string `json:"user_identity,omitempty"`
-	// Account holds the value of the "account" field.
-	Account int64 `json:"account,omitempty"`
+	// Account holds the value of the "user" field.
+	Account int64 `json:"user,omitempty"`
 	// Password holds the value of the "password" field.
 	Password string `json:"password,omitempty"`
 	// Salt holds the value of the "salt" field.
@@ -37,7 +37,7 @@ func (*UserAccount) scanValues() []interface{} {
 	return []interface{}{
 		&sql.NullInt64{},  // id
 		&sql.NullString{}, // user_identity
-		&sql.NullInt64{},  // account
+		&sql.NullInt64{},  // user
 		&sql.NullString{}, // password
 		&sql.NullString{}, // salt
 		&sql.NullTime{},   // created_at
@@ -54,42 +54,42 @@ func (ua *UserAccount) assignValues(values ...interface{}) error {
 	}
 	value, ok := values[0].(*sql.NullInt64)
 	if !ok {
-		return fmt.Errorf("unexpected type %T for field id", value)
+		return fmt.Errorf("unexpected user %T for field id", value)
 	}
 	ua.ID = int64(value.Int64)
 	values = values[1:]
 	if value, ok := values[0].(*sql.NullString); !ok {
-		return fmt.Errorf("unexpected type %T for field user_identity", values[0])
+		return fmt.Errorf("unexpected user %T for field user_identity", values[0])
 	} else if value.Valid {
 		ua.UserIdentity = value.String
 	}
 	if value, ok := values[1].(*sql.NullInt64); !ok {
-		return fmt.Errorf("unexpected type %T for field account", values[1])
+		return fmt.Errorf("unexpected user %T for field user", values[1])
 	} else if value.Valid {
 		ua.Account = value.Int64
 	}
 	if value, ok := values[2].(*sql.NullString); !ok {
-		return fmt.Errorf("unexpected type %T for field password", values[2])
+		return fmt.Errorf("unexpected user %T for field password", values[2])
 	} else if value.Valid {
 		ua.Password = value.String
 	}
 	if value, ok := values[3].(*sql.NullString); !ok {
-		return fmt.Errorf("unexpected type %T for field salt", values[3])
+		return fmt.Errorf("unexpected user %T for field salt", values[3])
 	} else if value.Valid {
 		ua.Salt = value.String
 	}
 	if value, ok := values[4].(*sql.NullTime); !ok {
-		return fmt.Errorf("unexpected type %T for field created_at", values[4])
+		return fmt.Errorf("unexpected user %T for field created_at", values[4])
 	} else if value.Valid {
 		ua.CreatedAt = value.Time
 	}
 	if value, ok := values[5].(*sql.NullTime); !ok {
-		return fmt.Errorf("unexpected type %T for field updated_at", values[5])
+		return fmt.Errorf("unexpected user %T for field updated_at", values[5])
 	} else if value.Valid {
 		ua.UpdatedAt = value.Time
 	}
 	if value, ok := values[6].(*sql.NullTime); !ok {
-		return fmt.Errorf("unexpected type %T for field deleted_at", values[6])
+		return fmt.Errorf("unexpected user %T for field deleted_at", values[6])
 	} else if value.Valid {
 		ua.DeletedAt = value.Time
 	}
@@ -121,7 +121,7 @@ func (ua *UserAccount) String() string {
 	builder.WriteString(fmt.Sprintf("id=%v", ua.ID))
 	builder.WriteString(", user_identity=")
 	builder.WriteString(ua.UserIdentity)
-	builder.WriteString(", account=")
+	builder.WriteString(", user=")
 	builder.WriteString(fmt.Sprintf("%v", ua.Account))
 	builder.WriteString(", password=")
 	builder.WriteString(ua.Password)

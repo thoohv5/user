@@ -12,7 +12,9 @@ type Base struct {
 
 type BasePage struct {
 	options
+	// 开始，默认：0
 	Start uint32 `json:"start" form:"start,default=0"`
+	// 范围，默认：15
 	Limit uint32 `json:"limit" form:"limit,default=15"`
 }
 

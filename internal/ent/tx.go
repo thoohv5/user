@@ -45,7 +45,7 @@ type (
 		Commit(context.Context, *Tx) error
 	}
 
-	// The CommitFunc type is an adapter to allow the use of ordinary
+	// The CommitFunc user is an adapter to allow the use of ordinary
 	// function as a Committer. If f is a function with the appropriate
 	// signature, CommitFunc(f) is a Committer that calls f.
 	CommitFunc func(context.Context, *Tx) error
@@ -100,7 +100,7 @@ type (
 		Rollback(context.Context, *Tx) error
 	}
 
-	// The RollbackFunc type is an adapter to allow the use of ordinary
+	// The RollbackFunc user is an adapter to allow the use of ordinary
 	// function as a Rollbacker. If f is a function with the appropriate
 	// signature, RollbackFunc(f) is a Rollbacker that calls f.
 	RollbackFunc func(context.Context, *Tx) error

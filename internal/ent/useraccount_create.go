@@ -34,13 +34,13 @@ func (uac *UserAccountCreate) SetNillableUserIdentity(s *string) *UserAccountCre
 	return uac
 }
 
-// SetAccount sets the account field.
+// SetAccount sets the user field.
 func (uac *UserAccountCreate) SetAccount(i int64) *UserAccountCreate {
 	uac.mutation.SetAccount(i)
 	return uac
 }
 
-// SetNillableAccount sets the account field if the given value is not nil.
+// SetNillableAccount sets the user field if the given value is not nil.
 func (uac *UserAccountCreate) SetNillableAccount(i *int64) *UserAccountCreate {
 	if i != nil {
 		uac.SetAccount(*i)
@@ -145,7 +145,7 @@ func (uac *UserAccountCreate) Save(ctx context.Context) (*UserAccount, error) {
 		var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 			mutation, ok := m.(*UserAccountMutation)
 			if !ok {
-				return nil, fmt.Errorf("unexpected mutation type %T", m)
+				return nil, fmt.Errorf("unexpected mutation user %T", m)
 			}
 			if err = uac.check(); err != nil {
 				return nil, err
@@ -304,7 +304,7 @@ func (uacb *UserAccountCreateBulk) Save(ctx context.Context) ([]*UserAccount, er
 			var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 				mutation, ok := m.(*UserAccountMutation)
 				if !ok {
-					return nil, fmt.Errorf("unexpected mutation type %T", m)
+					return nil, fmt.Errorf("unexpected mutation user %T", m)
 				}
 				if err := builder.check(); err != nil {
 					return nil, err

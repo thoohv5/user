@@ -1,4 +1,117 @@
 definitions:
+  ent.User:
+    properties:
+      created_at:
+        description: CreatedAt holds the value of the "created_at" field.
+        type: string
+      deleted_at:
+        description: DeletedAt holds the value of the "deleted_at" field.
+        type: string
+      id:
+        description: ID of the ent.
+        type: integer
+      identity:
+        description: Identity holds the value of the "identity" field.
+        type: string
+      is_disable:
+        description: IsDisable holds the value of the "is_disable" field.
+        type: integer
+      updated_at:
+        description: UpdatedAt holds the value of the "updated_at" field.
+        type: string
+      user:
+        description: Type holds the value of the "user" field.
+        type: integer
+    type: object
+  ent.UserAccount:
+    properties:
+      created_at:
+        description: CreatedAt holds the value of the "created_at" field.
+        type: string
+      deleted_at:
+        description: DeletedAt holds the value of the "deleted_at" field.
+        type: string
+      id:
+        description: ID of the ent.
+        type: integer
+      password:
+        description: Password holds the value of the "password" field.
+        type: string
+      salt:
+        description: Salt holds the value of the "salt" field.
+        type: string
+      updated_at:
+        description: UpdatedAt holds the value of the "updated_at" field.
+        type: string
+      user:
+        description: Account holds the value of the "user" field.
+        type: integer
+      user_identity:
+        description: UserIdentity holds the value of the "user_identity" field.
+        type: string
+    type: object
+  ent.UserExtend:
+    properties:
+      created_at:
+        description: CreatedAt holds the value of the "created_at" field.
+        type: string
+      deleted_at:
+        description: DeletedAt holds the value of the "deleted_at" field.
+        type: string
+      id:
+        description: ID of the ent.
+        type: integer
+      updated_at:
+        description: UpdatedAt holds the value of the "updated_at" field.
+        type: string
+      user_identity:
+        description: UserIdentity holds the value of the "user_identity" field.
+        type: string
+    type: object
+  ent.UserInfo:
+    properties:
+      channel:
+        description: Channel holds the value of the "channel" field.
+        type: integer
+      created_at:
+        description: CreatedAt holds the value of the "created_at" field.
+        type: string
+      deleted_at:
+        description: DeletedAt holds the value of the "deleted_at" field.
+        type: string
+      form:
+        description: Form holds the value of the "form" field.
+        type: integer
+      id:
+        description: ID of the ent.
+        type: integer
+      updated_at:
+        description: UpdatedAt holds the value of the "updated_at" field.
+        type: string
+      user_identity:
+        description: UserIdentity holds the value of the "user_identity" field.
+        type: string
+    type: object
+  entity.DetailEntity:
+    properties:
+      userAccount:
+        $ref: '#/definitions/ent.UserAccount'
+      userEntity:
+        $ref: '#/definitions/ent.User'
+      userExtendEntity:
+        $ref: '#/definitions/ent.UserExtend'
+      userInfoEntity:
+        $ref: '#/definitions/ent.UserInfo'
+    type: object
+  entity.UserBasis:
+    properties:
+      userEntity:
+        $ref: '#/definitions/ent.User'
+      userExtendEntity:
+        $ref: '#/definitions/ent.UserExtend'
+      userInfoEntity:
+        $ref: '#/definitions/ent.UserInfo'
+    type: object
   http.ResponseEntity:
     properties:
       data:
@@ -10,80 +123,91 @@ definitions:
         description: 响应消息
         type: string
     type: object
-  server.GetExampleResp:
+  user.DetailReq:
     properties:
-      id:
-        description: Id
+      accountType:
+        description: 账号类型：0-用户密码，1-手机号码
         type: integer
-      name:
-        description: 名称
+      identity:
+        description: 唯一标识
         type: string
     type: object
-  server.PostExampleReq:
+  user.DetailResp:
     properties:
-      id:
-        description: Id
+      detail:
+        $ref: '#/definitions/entity.DetailEntity'
+    type: object
+  user.EditReq:
+    properties:
+      accountType:
+        description: 账号类型：0-用户密码，1-手机号码
         type: integer
-      name:
-        description: 名称
+      extra:
+        description: 额外字段，字段为json，格式：
+        type: string
+      identity:
+        description: 唯一标识
+        type: string
+      userIdentity:
+        description: 用户标识
         type: string
     required:
-    - id
+    - userIdentity
     type: object
-  server.PostExampleResp:
+  user.ListReq:
     properties:
-      id:
-        description: Id
+      limit:
+        description: 范围，默认：15
         type: integer
-      name:
-        description: 名称
+      start:
+        description: 开始，默认：0
+        type: integer
+      userType:
+        description: 用户类型
+        type: integer
+    type: object
+  user.ListResp:
+    properties:
+      list:
+        items:
+          $ref: '#/definitions/entity.UserBasis'
+        type: array
+    type: object
+  user.RegisterReq:
+    properties:
+      accountType:
+        description: 账号类型：0-用户密码，1-手机号码
+        type: integer
+      extra:
+        description: 额外字段，字段为json，格式：
+        type: string
+      identity:
+        description: 唯一标识
+        type: string
+    required:
+    - identity
+    type: object
+  user.RegisterResp:
+    properties:
+      userIdentity:
+        description: 用户标识
         type: string
     type: object
 info:
   contact: {}
 paths:
-  /get-example:
+  /detail:
     get:
       consumes:
       - application/json
-      description: 获取swagger格式
-      parameters:
-      - description: id
-        in: query
-        name: id
-        required: true
-        type: integer
-      - description: 姓名
-        in: query
-        name: name
-        type: string
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            allOf:
-            - $ref: '#/definitions/http.ResponseEntity'
-            - properties:
-                data:
-                  $ref: '#/definitions/server.GetExampleResp'
-              type: object
-      summary: 示例
-      tags:
-      - 用户模块
-  /post-example:
-    post:
-      consumes:
-      - application/json
-      description: 获取swagger格式
+      description: 用户的详情
       parameters:
       - description: 请求值
         in: body
         name: req
         required: true
         schema:
-          $ref: '#/definitions/server.PostExampleReq'
+          $ref: '#/definitions/user.DetailReq'
       produces:
       - application/json
       responses:
@@ -94,9 +218,85 @@ paths:
             - $ref: '#/definitions/http.ResponseEntity'
             - properties:
                 data:
-                  $ref: '#/definitions/server.PostExampleResp'
+                  $ref: '#/definitions/user.DetailResp'
               type: object
-      summary: 示例
+      summary: 用户详情
+      tags:
+      - 用户模块
+  /edit:
+    post:
+      consumes:
+      - application/json
+      description: 编辑用户
+      parameters:
+      - description: 请求值
+        in: body
+        name: req
+        required: true
+        schema:
+          $ref: '#/definitions/user.EditReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/http.ResponseEntity'
+      summary: 用户编辑
+      tags:
+      - 用户模块
+  /list:
+    get:
+      consumes:
+      - application/json
+      description: 用户的列表
+      parameters:
+      - description: 请求值
+        in: body
+        name: req
+        required: true
+        schema:
+          $ref: '#/definitions/user.ListReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.ResponseEntity'
+            - properties:
+                data:
+                  $ref: '#/definitions/user.ListResp'
+              type: object
+      summary: 用户列表
+      tags:
+      - 用户模块
+  /register:
+    post:
+      consumes:
+      - application/json
+      description: 用户注册的接口
+      parameters:
+      - description: 请求值
+        in: body
+        name: req
+        required: true
+        schema:
+          $ref: '#/definitions/user.RegisterReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.ResponseEntity'
+            - properties:
+                data:
+                  $ref: '#/definitions/user.RegisterResp'
+              type: object
+      summary: 用户注册
       tags:
       - 用户模块
 swagger: "2.0"
